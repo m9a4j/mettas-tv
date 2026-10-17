@@ -7,16 +7,16 @@
 :root{--navy:#082b4c;--red:#d50920;--blue:#00a6e8}*{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Arial,'Segoe UI',sans-serif;color:var(--navy)}
 body{overflow:hidden;background:#e8eff4}
-/* Unified backdrop: two softly masked industrial edges, no central rectangle. */
-.scene{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#eaf1f7}
-.scene::before,.scene::after{content:"";position:absolute;inset:0;background-image:url("fabrika-arka-plan.jpg");background-size:cover;background-repeat:no-repeat;pointer-events:none}
-.scene::before{background-position:center center;opacity:.83;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%);mask-image:linear-gradient(90deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%)}
-.scene::after{background-position:center center;opacity:.83;-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%);mask-image:linear-gradient(270deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%)}
-/* Gentle unified veil across the entire display. */
-body::before{content:"";position:fixed;inset:0 0 128px;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 50% 85% at center,rgba(244,248,251,.70),rgba(244,248,251,.28) 68%,transparent 100%)}
+/* The source photo contains a pale rectangular center. Crop it away entirely:
+   use only the left and right edges, fading each into one shared background. */
+.scene{position:fixed;inset:0;z-index:-3;overflow:hidden;background:linear-gradient(105deg,#e4edf4 0%,#f3f7fb 35%,#f3f7fb 65%,#e5edf3 100%)}
+.scene::before,.scene::after{content:"";position:absolute;top:0;bottom:0;width:38%;background-image:url("fabrika-arka-plan.jpg");background-repeat:no-repeat;background-size:auto 100%;pointer-events:none;opacity:.83}
+.scene::before{left:0;background-position:left center;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 48%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 48%,transparent 100%)}
+.scene::after{right:0;background-position:right center;-webkit-mask-image:linear-gradient(to left,#000 0%,#000 48%,transparent 100%);mask-image:linear-gradient(to left,#000 0%,#000 48%,transparent 100%)}
+body::before{content:"";position:fixed;inset:0 0 128px;z-index:-2;pointer-events:none;background:linear-gradient(90deg,rgba(240,246,251,.12),rgba(240,246,251,.18) 40%,rgba(240,246,251,.18) 60%,rgba(240,246,251,.12))}
 main{height:calc(100dvh - 128px);min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(20px,3vh,40px) 5vw 3vh;text-align:center}
-.brand-row{width:min(1040px,78vw);display:flex;align-items:center;justify-content:space-between;gap:6vw;min-height:135px}
-.brand{width:40%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
+.brand-row{width:min(1080px,80vw);display:flex;align-items:center;justify-content:space-between;gap:6vw;min-height:135px}
+.brand{width:39%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
 .brand img{width:100%;height:clamp(90px,15vh,150px);object-fit:contain;mix-blend-mode:multiply}
 .brand.schaaf img{height:clamp(80px,13vh,125px)}
 .brand .tag{font-size:clamp(10px,1.05vw,18px);font-weight:800;letter-spacing:.02em;margin-top:3px;color:#0a2a43}
