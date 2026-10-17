@@ -1,11 +1,59 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Cache-Control" content="no-cache"><title>Mettaş Cıvata | Karşılama</title>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mettaş Cıvata | Karşılama</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#091e36;background:#eaf1f7}.screen{width:100%;min-height:100vh;display:flex;flex-direction:column;background:linear-gradient(90deg,rgba(246,250,255,.10),rgba(255,255,255,.70) 28%,rgba(255,255,255,.70) 72%,rgba(246,250,255,.10)),url("fabrika-arka-plan.jpg") center center/cover no-repeat;overflow:hidden}.head{height:25vh;min-height:160px;display:flex;align-items:center;justify-content:center;gap:4vw;padding:3vh 5vw}.logo{object-fit:contain;max-width:39%;max-height:19vh}.line{height:18vh;width:2px;background:#728396}.center{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:1vh 5vw}.welcome{font-size:clamp(36px,6.5vw,110px);font-weight:900;color:#c90016;letter-spacing:.01em;line-height:1.04}.german{font-size:clamp(30px,5.3vw,92px);font-weight:850;color:#073968;line-height:1.1;margin-top:.4vh}.rule{height:5px;width:16vw;background:linear-gradient(90deg,#b50014 50%,#079ee3 50%);margin:2vh}.visitor{background:rgba(255,255,255,.91);border:1px solid #d4e0e9;border-radius:18px;padding:2vh 4vw;width:min(85%,1300px);box-shadow:0 6px 25px #16355215}.name{font-size:clamp(29px,4.5vw,76px);font-weight:800}.company{font-size:clamp(14px,1.6vw,26px);color:#476178;margin:.5vh}.msg{font-size:clamp(14px,1.8vw,29px);margin-top:1.4vh}.msg.de{font-size:clamp(12px,1.45vw,24px);color:#566779;margin-top:.6vh}.foot{background:rgba(8,38,66,.97);color:white;min-height:13vh;display:flex;align-items:center;justify-content:space-around;gap:2vw;padding:1.6vh 4vw}.weather{display:flex;align-items:center;gap:1.3vw}.symbol{font-size:clamp(27px,3vw,55px)}.temp{font-size:clamp(30px,3.6vw,65px);font-weight:700}.small{font-size:clamp(13px,1.45vw,24px)}.clock{font-size:clamp(26px,3.3vw,60px);font-weight:700}.divider{height:7vh;width:1px;background:#ffffff66}.error{font-size:clamp(12px,1.2vw,18px)}@media(max-width:600px){.head{height:20vh}.logo{max-width:42%}.center{padding:5vh 3vw}.visitor{width:95%}.foot{flex-wrap:wrap}.divider{display:none}}
-</style></head><body><main class="screen"><header class="head"><img class="logo" src="mettas.png" alt="Mettaş Cıvata"><div class="line"></div><div style="width:39%;display:flex;flex-direction:column;align-items:center;gap:.7vh"><img src="schaaf.png" alt="SCHAAF" style="max-width:100%;max-height:15vh;object-fit:contain"><div style="font-size:clamp(10px,1.15vw,19px);font-weight:700;text-align:center">LEADING JOINING TECHNOLOGY BY SCHAAF</div></div></header><section class="center"><div class="welcome">HOŞ GELDİNİZ</div><div class="german">WILLKOMMEN</div><div class="rule"></div><div class="visitor"><div class="name" id="visitor">Ali Kemal Karaağaç</div><div class="company" id="company">SCHAAF GmbH</div><div class="msg" id="tr">Ziyaretinizden memnuniyet duyuyoruz.</div><div class="msg de" id="de">Wir freuen uns über Ihren Besuch.</div></div></section><footer class="foot"><div class="weather"><span class="symbol" id="weather-icon">🌤️</span><div><div class="small">ÇAYIROVA · KOCAELİ</div><div class="temp" id="temp">--°C</div><div class="small" id="condition">Hava durumu yükleniyor…</div></div></div><div class="divider"></div><div><div class="small" id="date">—</div><div class="clock" id="clock">--:--</div></div></footer></main>
+:root{--navy:#082b4c;--red:#d50920;--blue:#00a6e8}*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,'Segoe UI',sans-serif;color:var(--navy)}
+body{overflow:hidden;background:#e8eff4}
+.scene{position:fixed;inset:0;background-image:url('fabrika-arka-plan.jpg');background-size:cover;background-position:center;z-index:-3}
+/* Feathered overlay, rather than a rectangular white box */
+.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(224,236,245,.09) 0%,rgba(235,243,249,.34) 21%,rgba(245,249,252,.70) 38%,rgba(247,250,253,.74) 62%,rgba(234,242,248,.32) 80%,rgba(224,236,245,.06) 100%)}
+.scene:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(238,245,250,.32),transparent 30%,transparent 75%,rgba(8,43,76,.13));z-index:1}
+main{height:calc(100dvh - 128px);min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(20px,3vh,40px) 5vw 3vh;text-align:center}
+.brand-row{width:min(1100px,83vw);display:flex;align-items:center;justify-content:space-between;gap:6vw;min-height:135px}
+.brand{width:42%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
+.brand img{width:100%;height:clamp(90px,15vh,150px);object-fit:contain;mix-blend-mode:multiply}
+.brand.schaaf img{height:clamp(80px,13vh,125px)}
+.brand .tag{font-size:clamp(10px,1.05vw,18px);font-weight:800;letter-spacing:.02em;margin-top:3px;color:#0a2a43}
+.brand-divider{height:clamp(85px,12vh,130px);width:2px;background:linear-gradient(transparent,#53728b,transparent);flex:none}
+.hero{width:100%;margin:auto 0;transform:translateY(2vh)}
+.hero h1{margin:0;font-size:clamp(43px,6.4vw,105px);letter-spacing:.025em;line-height:1.03;font-weight:900;color:var(--red);text-shadow:0 2px 20px rgba(255,255,255,.65)}
+.hero h2{margin:6px 0 0;font-size:clamp(38px,5.1vw,84px);line-height:1.05;letter-spacing:.025em;font-weight:900;text-shadow:0 2px 18px rgba(255,255,255,.8)}
+.accent{width:clamp(140px,18vw,275px);height:5px;margin:22px auto 0;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50%)}
+.guest{width:min(980px,85vw);padding:18px 36px 24px;margin-top:1.5vh;border-radius:22px;background:linear-gradient(100deg,rgba(255,255,255,.18),rgba(255,255,255,.42) 48%,rgba(255,255,255,.16));border:1px solid rgba(255,255,255,.40);box-shadow:0 12px 45px rgba(14,44,67,.08);backdrop-filter:blur(5px)}
+.guest-name{font-size:clamp(32px,4.1vw,70px);font-weight:800;line-height:1.13;overflow-wrap:anywhere}.company{font-size:clamp(17px,1.65vw,27px);color:#426481;margin-top:8px}.welcome-note{font-size:clamp(16px,1.55vw,25px);margin-top:12px}.welcome-note-de{font-size:clamp(14px,1.25vw,20px);margin-top:4px;color:#476580}
+footer{height:128px;background:rgba(5,37,66,.96);color:white;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(30px,9vw,175px);gap:30px}
+.weather{display:flex;align-items:center;gap:22px}.weather-icon{font-size:58px;line-height:1}.place{font-size:clamp(15px,1.3vw,22px);font-weight:500}.temp{font-size:clamp(33px,3.4vw,57px);font-weight:800;line-height:1.05}.condition{font-size:clamp(13px,1.15vw,19px);margin-top:4px}
+.foot-divider{height:62px;width:1px;background:rgba(255,255,255,.35)}.timebox{text-align:left}.date{font-size:clamp(14px,1.3vw,21px)}.clock{font-size:clamp(34px,3.5vw,58px);font-weight:800;line-height:1.1}
+@media(max-width:750px){main{height:calc(100dvh - 104px);padding:14px 3vw}.brand-row{width:96%;gap:12px;min-height:75px}.brand{width:46%}.brand img,.brand.schaaf img{height:72px}.brand .tag{font-size:8px}.brand-divider{height:55px}.hero h1{font-size:clamp(32px,7vw,56px)}.hero h2{font-size:clamp(28px,6vw,49px)}.guest{width:94%;padding:16px}.guest-name{font-size:clamp(27px,5vw,45px)}footer{height:104px;padding:12px 20px}.weather-icon{font-size:35px}.weather{gap:10px}.foot-divider{height:50px}.temp{font-size:31px}.clock{font-size:33px}}
+@media(max-height:650px){main{padding-top:8px;padding-bottom:10px}.brand img,.brand.schaaf img{height:80px}.hero{transform:none}.hero h1{font-size:min(5.7vw,65px)}.hero h2{font-size:min(4.6vw,55px)}.accent{margin-top:12px}.guest{padding:12px}.guest-name{font-size:min(3.7vw,42px)}footer{height:100px}main{height:calc(100dvh - 100px)}}
+</style>
+</head>
+<body>
+<div class="scene" aria-hidden="true"></div>
+<main>
+<header class="brand-row">
+<div class="brand"><img src="mettas.png" alt="METTAŞ Cıvata"></div>
+<div class="brand-divider" aria-hidden="true"></div>
+<div class="brand schaaf"><img src="schaaf.png" alt="SCHAAF"><div class="tag">LEADING JOINING TECHNOLOGY BY SCHAAF</div></div>
+</header>
+<section class="hero"><h1>HOŞ GELDİNİZ</h1><h2>WILLKOMMEN</h2><div class="accent"></div></section>
+<section class="guest"><div class="guest-name" id="guestName">Ali Kemal Karaağaç</div><div class="company" id="guestCompany">SCHAAF GmbH</div><div class="welcome-note">Ziyaretinizden memnuniyet duyuyoruz.</div><div class="welcome-note-de">Wir freuen uns über Ihren Besuch.</div></section>
+</main>
+<footer><div class="weather"><span class="weather-icon" id="weatherIcon">🌤️</span><div><div class="place">ÇAYIROVA · KOCAELİ</div><div class="temp" id="temperature">--°C</div><div class="condition" id="weatherText">Hava durumu yükleniyor...</div></div></div><div class="foot-divider"></div><div class="timebox"><div class="date" id="date"></div><div class="clock" id="clock"></div></div></footer>
 <script>
-const $=id=>document.getElementById(id);async function loadConfig(){try{const r=await fetch('config.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();const c=await r.json();for(const [id,key] of [['visitor','visitor'],['company','company'],['tr','welcome_tr'],['de','welcome_de']])if(typeof c[key]==='string')$(id).textContent=c[key]}catch(e){}}function tick(){const d=new Date();$('clock').textContent=new Intl.DateTimeFormat('tr-TR',{timeZone:'Europe/Istanbul',hour:'2-digit',minute:'2-digit',hour12:false}).format(d);$('date').textContent=new Intl.DateTimeFormat('tr-TR',{timeZone:'Europe/Istanbul',day:'numeric',month:'long',year:'numeric',weekday:'long'}).format(d)}
-function codeText(n){if(n===0)return ['☀️','Açık'];if([1,2,3].includes(n))return ['⛅','Parçalı bulutlu'];if([45,48].includes(n))return ['🌫️','Sisli'];if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(n))return ['🌧️','Yağmurlu'];if([71,73,75,77,85,86].includes(n))return ['❄️','Karlı'];if([95,96,99].includes(n))return ['⛈️','Gök gürültülü'];return ['🌤️','Hava durumu']}
-async function weather(){try{const u='https://api.open-meteo.com/v1/forecast?latitude=40.83444&longitude=29.4&current=temperature_2m,weather_code&timezone=Europe%2FIstanbul';const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw Error();const d=await r.json();const c=d.current;const [ic,desc]=codeText(c.weather_code);$('weather-icon').textContent=ic;$('temp').textContent=Math.round(c.temperature_2m)+'°C';$('condition').textContent=desc}catch(e){$('condition').textContent='Hava durumu şu an alınamıyor'}}
-loadConfig();tick();weather();setInterval(tick,1000);setInterval(loadConfig,60000);setInterval(weather,15*60*1000);
-</script></body></html>
+const params=new URLSearchParams(location.search);
+function setGuest(name,company){if(name)document.getElementById('guestName').textContent=name;if(company)document.getElementById('guestCompany').textContent=company}
+setGuest(params.get('isim')||params.get('name'),params.get('firma')||params.get('company'));
+fetch('config.json?ts='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('config');return r.json()}).then(c=>{
+  const name=c.visitorName||c.guestName||c.guest_name||c.name||c.isim||c.visitor?.name||c.guest?.name;
+  const company=c.visitorCompany||c.guestCompany||c.guest_company||c.company||c.firma||c.visitor?.company||c.guest?.company;
+  setGuest(params.get('isim')||params.get('name')||name,params.get('firma')||params.get('company')||company);
+}).catch(()=>{});
+function tick(){const d=new Date();document.getElementById('date').textContent=new Intl.DateTimeFormat('tr-TR',{day:'numeric',month:'long',year:'numeric',weekday:'long',timeZone:'Europe/Istanbul'}).format(d);document.getElementById('clock').textContent=new Intl.DateTimeFormat('tr-TR',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Europe/Istanbul'}).format(d)}tick();setInterval(tick,1000);
+function describe(code){if(code===0)return ['☀️','Açık'];if(code<=3)return ['⛅','Parçalı bulutlu'];if(code<=48)return ['🌫️','Sisli'];if(code<=67)return ['🌧️','Yağmurlu'];if(code<=77)return ['❄️','Karlı'];if(code<=82)return ['🌦️','Sağanak yağışlı'];if(code<=86)return ['🌨️','Kar yağışlı'];if(code>=95)return ['⛈️','Gök gürültülü'];return ['🌤️','Değişken']}
+async function weather(){try{const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=40.83444&longitude=29.4&current=temperature_2m,weather_code&timezone=Europe%2FIstanbul',{cache:'no-store'});if(!r.ok)throw Error('weather');const j=await r.json();const [icon,label]=describe(j.current.weather_code);document.getElementById('weatherIcon').textContent=icon;document.getElementById('temperature').textContent=Math.round(j.current.temperature_2m)+'°C';document.getElementById('weatherText').textContent=label}catch(e){document.getElementById('weatherText').textContent='Hava durumu güncellenemedi'}}weather();setInterval(weather,15*60*1000);
+</script>
+</body></html>
