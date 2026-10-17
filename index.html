@@ -13,10 +13,10 @@ html,body{height:100%;margin:0;font-family:Arial,"Segoe UI",sans-serif;color:#ff
 .scene::after{right:0;background-position:right center;-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 20%,transparent 94%);mask-image:linear-gradient(270deg,#000 0%,#000 20%,transparent 94%)}
 .scene-shade{position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(5,22,39,.25) 0%,rgba(5,22,39,.8) 30%,#071a2e 47%,#071a2e 53%,rgba(5,22,39,.8) 70%,rgba(5,22,39,.25) 100%),linear-gradient(180deg,rgba(5,19,33,.2),rgba(5,19,33,.12) 65%,rgba(5,19,33,.65))}
 main{height:calc(100dvh - 116px);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(20px,3.5vh,38px) 4vw 4vh;text-align:center}
-.brand-row{width:min(1050px,82vw);display:flex;align-items:center;justify-content:space-between;gap:40px}
-.brand{width:42%;min-width:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:0;background:transparent;border-radius:0;box-shadow:none}
-.brand img{height:clamp(78px,11vh,122px);width:100%;object-fit:contain}.brand.schaaf img{height:clamp(70px,9vh,103px)}
-.brand .tag{font-size:clamp(9px,.82vw,14px);font-weight:800;color:#fff;text-shadow:0 1px 5px #00172a;letter-spacing:.025em;white-space:nowrap;margin-top:3px}
+.brand-row{width:min(1120px,88vw);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw}
+.brand{width:100%;min-width:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:0;background:transparent;border-radius:0;box-shadow:none}
+.brand img{height:clamp(105px,16vh,158px);width:100%;object-fit:contain;filter:drop-shadow(0 2px 7px rgba(255,255,255,.18))}.brand.schaaf img{height:clamp(105px,16vh,158px)}
+.brand .tag{font-size:clamp(9px,.82vw,14px);font-weight:800;color:#fff;text-shadow:0 1px 5px #00172a;letter-spacing:.025em;white-space:nowrap;margin-top:5px}
 .brand-divider{width:1px;height:80px;background:linear-gradient(transparent,rgba(255,255,255,.55),transparent)}
 .hero{margin:auto 0 3vh}.hero h1{font-size:clamp(46px,6.4vw,106px);font-weight:900;letter-spacing:.035em;line-height:1.04;margin:0;color:#ff3048;text-shadow:0 5px 25px rgba(0,0,0,.45)}
 .hero h2{font-size:clamp(40px,5.3vw,88px);font-weight:900;letter-spacing:.035em;line-height:1.08;margin:7px 0 0;color:#fff;text-shadow:0 5px 25px rgba(0,0,0,.45)}
@@ -27,17 +27,17 @@ main{height:calc(100dvh - 116px);display:flex;flex-direction:column;align-items:
 footer{height:116px;background:rgba(3,21,38,.94);border-top:1px solid rgba(255,255,255,.17);display:flex;align-items:center;justify-content:space-between;padding:12px clamp(28px,10vw,185px);gap:30px;color:#fff}
 .weather{display:flex;align-items:center;gap:22px}.weather-icon{font-size:55px}.place{font-size:clamp(15px,1.25vw,21px)}.temp{font-size:clamp(36px,3.3vw,58px);font-weight:800;line-height:1.06}.condition{font-size:clamp(13px,1.1vw,19px)}
 .foot-divider{height:60px;width:1px;background:rgba(255,255,255,.3)}.timebox{text-align:left}.date{font-size:clamp(14px,1.2vw,21px)}.clock{font-size:clamp(36px,3.4vw,58px);font-weight:800;line-height:1.1}
-@media(max-width:760px){main{height:calc(100dvh - 96px);padding:12px 3vw 2vh}.brand-row{width:96%;gap:10px}.brand{width:47%;padding:8px}.brand img{height:65px}.brand.schaaf img{height:60px}.brand .tag{font-size:7px;white-space:normal}.brand-divider{height:55px}.hero h1{font-size:clamp(32px,7vw,56px)}.hero h2{font-size:clamp(30px,6vw,50px)}.guest{width:96%;padding:14px 8px}.guest-name{font-size:clamp(26px,5vw,43px)}footer{height:96px;padding:8px 18px;gap:12px}.weather{gap:9px}.weather-icon{font-size:34px}.temp,.clock{font-size:31px}.foot-divider{height:48px}}
-@media(max-height:650px){main{height:calc(100dvh - 88px);padding-top:7px;padding-bottom:8px}.brand img{height:62px}.brand.schaaf img{height:58px}.brand{padding:5px}.hero h1{font-size:min(5.7vw,65px)}.hero h2{font-size:min(4.7vw,54px)}.hero{margin:auto 0}.accent{margin-top:10px}.guest{padding:9px}.guest-name{font-size:min(3.7vw,42px)}footer{height:88px}}
+@media(max-width:760px){main{height:calc(100dvh - 96px);padding:12px 3vw 2vh}.brand-row{width:96%;gap:10px}.brand{width:47%;padding:8px}.brand img{height:75px}.brand.schaaf img{height:75px}.brand .tag{font-size:7px;white-space:normal}.brand-divider{height:55px}.hero h1{font-size:clamp(32px,7vw,56px)}.hero h2{font-size:clamp(30px,6vw,50px)}.guest{width:96%;padding:14px 8px}.guest-name{font-size:clamp(26px,5vw,43px)}footer{height:96px;padding:8px 18px;gap:12px}.weather{gap:9px}.weather-icon{font-size:34px}.temp,.clock{font-size:31px}.foot-divider{height:48px}}
+@media(max-height:650px){main{height:calc(100dvh - 88px);padding-top:7px;padding-bottom:8px}.brand img{height:70px}.brand.schaaf img{height:70px}.brand{padding:5px}.hero h1{font-size:min(5.7vw,65px)}.hero h2{font-size:min(4.7vw,54px)}.hero{margin:auto 0}.accent{margin-top:10px}.guest{padding:9px}.guest-name{font-size:min(3.7vw,42px)}footer{height:88px}}
 </style>
 </head>
 <body>
 <div class="scene" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
 <main>
 <header class="brand-row">
-<div class="brand"><img src="mettas.png" alt="METTAŞ Cıvata"></div>
+<div class="brand"><img src="mettas-tv.png" alt="METTAŞ Cıvata"></div>
 
-<img src="schaaf.png" alt="SCHAAF">
+<div class="brand schaaf"><img src="schaaf-tv.png" alt="SCHAAF"><div class="tag">LEADING JOINING TECHNOLOGY BY SCHAAF</div></div>
 </header>
 <section class="hero"><h1>HOŞ GELDİNİZ</h1><h2>WILLKOMMEN</h2><div class="accent"></div></section>
 <section class="guest"><div class="guest-name" id="guestName">Ali Kemal Karaağaç</div><div class="company" id="guestCompany">SCHAAF GmbH</div><div class="welcome-note">Ziyaretinizden memnuniyet duyuyoruz.</div><div class="welcome-note-de">Wir freuen uns über Ihren Besuch.</div></section>
