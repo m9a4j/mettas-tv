@@ -7,13 +7,16 @@
 :root{--navy:#082b4c;--red:#d50920;--blue:#00a6e8}*{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Arial,'Segoe UI',sans-serif;color:var(--navy)}
 body{overflow:hidden;background:#e8eff4}
-.scene{position:fixed;inset:0;background-image:url('fabrika-arka-plan.jpg');background-size:cover;background-position:center;z-index:-3}
-/* Feathered overlay, rather than a rectangular white box */
-.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(224,236,245,.09) 0%,rgba(235,243,249,.34) 21%,rgba(245,249,252,.70) 38%,rgba(247,250,253,.74) 62%,rgba(234,242,248,.32) 80%,rgba(224,236,245,.06) 100%)}
-.scene:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(238,245,250,.32),transparent 30%,transparent 75%,rgba(8,43,76,.13));z-index:1}
+/* Unified backdrop: two softly masked industrial edges, no central rectangle. */
+.scene{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#eaf1f7}
+.scene::before,.scene::after{content:"";position:absolute;inset:0;background-image:url("fabrika-arka-plan.jpg");background-size:cover;background-repeat:no-repeat;pointer-events:none}
+.scene::before{background-position:center center;opacity:.83;-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%);mask-image:linear-gradient(90deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%)}
+.scene::after{background-position:center center;opacity:.83;-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%);mask-image:linear-gradient(270deg,#000 0%,#000 10%,rgba(0,0,0,.7) 19%,transparent 39%)}
+/* Gentle unified veil across the entire display. */
+body::before{content:"";position:fixed;inset:0 0 128px;z-index:-2;pointer-events:none;background:radial-gradient(ellipse 50% 85% at center,rgba(244,248,251,.70),rgba(244,248,251,.28) 68%,transparent 100%)}
 main{height:calc(100dvh - 128px);min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(20px,3vh,40px) 5vw 3vh;text-align:center}
-.brand-row{width:min(1100px,83vw);display:flex;align-items:center;justify-content:space-between;gap:6vw;min-height:135px}
-.brand{width:42%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
+.brand-row{width:min(1040px,78vw);display:flex;align-items:center;justify-content:space-between;gap:6vw;min-height:135px}
+.brand{width:40%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
 .brand img{width:100%;height:clamp(90px,15vh,150px);object-fit:contain;mix-blend-mode:multiply}
 .brand.schaaf img{height:clamp(80px,13vh,125px)}
 .brand .tag{font-size:clamp(10px,1.05vw,18px);font-weight:800;letter-spacing:.02em;margin-top:3px;color:#0a2a43}
@@ -22,7 +25,7 @@ main{height:calc(100dvh - 128px);min-height:0;display:flex;flex-direction:column
 .hero h1{margin:0;font-size:clamp(43px,6.4vw,105px);letter-spacing:.025em;line-height:1.03;font-weight:900;color:var(--red);text-shadow:0 2px 20px rgba(255,255,255,.65)}
 .hero h2{margin:6px 0 0;font-size:clamp(38px,5.1vw,84px);line-height:1.05;letter-spacing:.025em;font-weight:900;text-shadow:0 2px 18px rgba(255,255,255,.8)}
 .accent{width:clamp(140px,18vw,275px);height:5px;margin:22px auto 0;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50%)}
-.guest{width:min(980px,85vw);padding:18px 36px 24px;margin-top:1.5vh;border-radius:22px;background:linear-gradient(100deg,rgba(255,255,255,.18),rgba(255,255,255,.42) 48%,rgba(255,255,255,.16));border:1px solid rgba(255,255,255,.40);box-shadow:0 12px 45px rgba(14,44,67,.08);backdrop-filter:blur(5px)}
+.guest{width:min(980px,85vw);padding:18px 36px 24px;margin-top:1.5vh;border-radius:0;background:radial-gradient(ellipse at center,rgba(255,255,255,.54),rgba(255,255,255,.17) 63%,transparent 100%);border:0;box-shadow:none;backdrop-filter:none}
 .guest-name{font-size:clamp(32px,4.1vw,70px);font-weight:800;line-height:1.13;overflow-wrap:anywhere}.company{font-size:clamp(17px,1.65vw,27px);color:#426481;margin-top:8px}.welcome-note{font-size:clamp(16px,1.55vw,25px);margin-top:12px}.welcome-note-de{font-size:clamp(14px,1.25vw,20px);margin-top:4px;color:#476580}
 footer{height:128px;background:rgba(5,37,66,.96);color:white;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(30px,9vw,175px);gap:30px}
 .weather{display:flex;align-items:center;gap:22px}.weather-icon{font-size:58px;line-height:1}.place{font-size:clamp(15px,1.3vw,22px);font-weight:500}.temp{font-size:clamp(33px,3.4vw,57px);font-weight:800;line-height:1.05}.condition{font-size:clamp(13px,1.15vw,19px);margin-top:4px}
