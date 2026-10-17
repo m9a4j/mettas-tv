@@ -4,38 +4,35 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mettaş Cıvata | Karşılama</title>
 <style>
-:root{--navy:#082b4c;--red:#d50920;--blue:#00a6e8}*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Arial,'Segoe UI',sans-serif;color:var(--navy)}
-body{overflow:hidden;background:#e8eff4}
-/* The source photo contains a pale rectangular center. Crop it away entirely:
-   use only the left and right edges, fading each into one shared background. */
-.scene{position:fixed;inset:0;z-index:-3;overflow:hidden;background:linear-gradient(105deg,#e4edf4 0%,#f3f7fb 35%,#f3f7fb 65%,#e5edf3 100%)}
-.scene::before,.scene::after{content:"";position:absolute;top:0;bottom:0;width:38%;background-image:url("fabrika-arka-plan.jpg");background-repeat:no-repeat;background-size:auto 100%;pointer-events:none;opacity:.83}
-.scene::before{left:0;background-position:left center;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 48%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 48%,transparent 100%)}
-.scene::after{right:0;background-position:right center;-webkit-mask-image:linear-gradient(to left,#000 0%,#000 48%,transparent 100%);mask-image:linear-gradient(to left,#000 0%,#000 48%,transparent 100%)}
-body::before{content:"";position:fixed;inset:0 0 128px;z-index:-2;pointer-events:none;background:linear-gradient(90deg,rgba(240,246,251,.12),rgba(240,246,251,.18) 40%,rgba(240,246,251,.18) 60%,rgba(240,246,251,.12))}
-main{height:calc(100dvh - 128px);min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(20px,3vh,40px) 5vw 3vh;text-align:center}
-.brand-row{width:min(1080px,80vw);display:flex;align-items:center;justify-content:space-between;gap:6vw;min-height:135px}
-.brand{width:39%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
-.brand img{width:100%;height:clamp(90px,15vh,150px);object-fit:contain;mix-blend-mode:multiply}
-.brand.schaaf img{height:clamp(80px,13vh,125px)}
-.brand .tag{font-size:clamp(10px,1.05vw,18px);font-weight:800;letter-spacing:.02em;margin-top:3px;color:#0a2a43}
-.brand-divider{height:clamp(85px,12vh,130px);width:2px;background:linear-gradient(transparent,#53728b,transparent);flex:none}
-.hero{width:100%;margin:auto 0;transform:translateY(2vh)}
-.hero h1{margin:0;font-size:clamp(43px,6.4vw,105px);letter-spacing:.025em;line-height:1.03;font-weight:900;color:var(--red);text-shadow:0 2px 20px rgba(255,255,255,.65)}
-.hero h2{margin:6px 0 0;font-size:clamp(38px,5.1vw,84px);line-height:1.05;letter-spacing:.025em;font-weight:900;text-shadow:0 2px 18px rgba(255,255,255,.8)}
-.accent{width:clamp(140px,18vw,275px);height:5px;margin:22px auto 0;background:linear-gradient(90deg,var(--red) 0 50%,var(--blue) 50%)}
-.guest{width:min(980px,85vw);padding:18px 36px 24px;margin-top:1.5vh;border-radius:0;background:radial-gradient(ellipse at center,rgba(255,255,255,.54),rgba(255,255,255,.17) 63%,transparent 100%);border:0;box-shadow:none;backdrop-filter:none}
-.guest-name{font-size:clamp(32px,4.1vw,70px);font-weight:800;line-height:1.13;overflow-wrap:anywhere}.company{font-size:clamp(17px,1.65vw,27px);color:#426481;margin-top:8px}.welcome-note{font-size:clamp(16px,1.55vw,25px);margin-top:12px}.welcome-note-de{font-size:clamp(14px,1.25vw,20px);margin-top:4px;color:#476580}
-footer{height:128px;background:rgba(5,37,66,.96);color:white;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(30px,9vw,175px);gap:30px}
-.weather{display:flex;align-items:center;gap:22px}.weather-icon{font-size:58px;line-height:1}.place{font-size:clamp(15px,1.3vw,22px);font-weight:500}.temp{font-size:clamp(33px,3.4vw,57px);font-weight:800;line-height:1.05}.condition{font-size:clamp(13px,1.15vw,19px);margin-top:4px}
-.foot-divider{height:62px;width:1px;background:rgba(255,255,255,.35)}.timebox{text-align:left}.date{font-size:clamp(14px,1.3vw,21px)}.clock{font-size:clamp(34px,3.5vw,58px);font-weight:800;line-height:1.1}
-@media(max-width:750px){main{height:calc(100dvh - 104px);padding:14px 3vw}.brand-row{width:96%;gap:12px;min-height:75px}.brand{width:46%}.brand img,.brand.schaaf img{height:72px}.brand .tag{font-size:8px}.brand-divider{height:55px}.hero h1{font-size:clamp(32px,7vw,56px)}.hero h2{font-size:clamp(28px,6vw,49px)}.guest{width:94%;padding:16px}.guest-name{font-size:clamp(27px,5vw,45px)}footer{height:104px;padding:12px 20px}.weather-icon{font-size:35px}.weather{gap:10px}.foot-divider{height:50px}.temp{font-size:31px}.clock{font-size:33px}}
-@media(max-height:650px){main{padding-top:8px;padding-bottom:10px}.brand img,.brand.schaaf img{height:80px}.hero{transform:none}.hero h1{font-size:min(5.7vw,65px)}.hero h2{font-size:min(4.6vw,55px)}.accent{margin-top:12px}.guest{padding:12px}.guest-name{font-size:min(3.7vw,42px)}footer{height:100px}main{height:calc(100dvh - 100px)}}
+:root{--navy:#071d32;--red:#f22a40;--blue:#18b7ed}*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,"Segoe UI",sans-serif;color:#fff}body{background:#081e34;overflow:hidden}
+/* Side crops of the factory photograph blend into one dark full-screen surface. */
+.scene{position:fixed;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(112deg,#153d57 0%,#0b263f 35%,#0b263f 65%,#19374c 100%)}
+.scene::before,.scene::after{content:"";position:absolute;inset:0;background-image:url("fabrika-arka-plan.jpg");background-size:100% 100%;background-repeat:no-repeat;opacity:.66;pointer-events:none}
+.scene::before{clip-path:inset(0 55% 0 0);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 16%,transparent 47%);mask-image:linear-gradient(90deg,#000 0%,#000 16%,transparent 47%)}
+.scene::after{clip-path:inset(0 0 0 55%);-webkit-mask-image:linear-gradient(270deg,#000 0%,#000 16%,transparent 47%);mask-image:linear-gradient(270deg,#000 0%,#000 16%,transparent 47%)}
+.scene-shade{position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(4,23,42,.38),rgba(6,26,45,.52) 27%,rgba(6,26,45,.64) 50%,rgba(6,26,45,.52) 73%,rgba(4,23,42,.35)),linear-gradient(180deg,rgba(4,20,35,.12),transparent 55%,rgba(4,20,35,.45))}
+main{height:calc(100dvh - 116px);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:clamp(20px,3.5vh,38px) 4vw 4vh;text-align:center}
+.brand-row{width:min(980px,78vw);display:flex;align-items:center;justify-content:space-between;gap:40px}
+.brand{width:42%;min-width:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:12px 22px 9px;background:rgba(255,255,255,.94);border-radius:18px;box-shadow:0 12px 45px rgba(0,0,0,.14)}
+.brand img{height:clamp(78px,11vh,122px);width:100%;object-fit:contain}.brand.schaaf img{height:clamp(70px,9vh,103px)}
+.brand .tag{font-size:clamp(9px,.82vw,14px);font-weight:800;color:#08253e;letter-spacing:.025em;white-space:nowrap;margin-top:3px}
+.brand-divider{width:1px;height:80px;background:linear-gradient(transparent,rgba(255,255,255,.55),transparent)}
+.hero{margin:auto 0 3vh}.hero h1{font-size:clamp(46px,6.4vw,106px);font-weight:900;letter-spacing:.035em;line-height:1.04;margin:0;color:#ff314b;text-shadow:0 5px 25px rgba(0,0,0,.45)}
+.hero h2{font-size:clamp(40px,5.3vw,88px);font-weight:900;letter-spacing:.035em;line-height:1.08;margin:7px 0 0;color:#fff;text-shadow:0 5px 25px rgba(0,0,0,.45)}
+.accent{width:240px;max-width:40vw;height:5px;margin:23px auto 0;background:linear-gradient(90deg,var(--red) 50%,var(--blue) 50%);border-radius:4px}
+.guest{width:min(960px,88vw);padding:18px 26px 23px;background:linear-gradient(90deg,transparent,rgba(5,27,47,.64) 18%,rgba(5,27,47,.64) 82%,transparent);border:none;border-radius:0;box-shadow:none;backdrop-filter:none}
+.guest-name{font-size:clamp(34px,4.1vw,70px);font-weight:800;line-height:1.16;overflow-wrap:anywhere;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.45)}
+.company{font-size:clamp(18px,1.65vw,27px);color:#b9d6e9;margin-top:8px}.welcome-note{font-size:clamp(16px,1.5vw,25px);margin-top:12px}.welcome-note-de{font-size:clamp(14px,1.2vw,20px);margin-top:5px;color:#c7d7e5}
+footer{height:116px;background:rgba(3,21,38,.94);border-top:1px solid rgba(255,255,255,.17);display:flex;align-items:center;justify-content:space-between;padding:12px clamp(28px,10vw,185px);gap:30px;color:#fff}
+.weather{display:flex;align-items:center;gap:22px}.weather-icon{font-size:55px}.place{font-size:clamp(15px,1.25vw,21px)}.temp{font-size:clamp(36px,3.3vw,58px);font-weight:800;line-height:1.06}.condition{font-size:clamp(13px,1.1vw,19px)}
+.foot-divider{height:60px;width:1px;background:rgba(255,255,255,.3)}.timebox{text-align:left}.date{font-size:clamp(14px,1.2vw,21px)}.clock{font-size:clamp(36px,3.4vw,58px);font-weight:800;line-height:1.1}
+@media(max-width:760px){main{height:calc(100dvh - 96px);padding:12px 3vw 2vh}.brand-row{width:96%;gap:10px}.brand{width:47%;padding:8px}.brand img{height:65px}.brand.schaaf img{height:60px}.brand .tag{font-size:7px;white-space:normal}.brand-divider{height:55px}.hero h1{font-size:clamp(32px,7vw,56px)}.hero h2{font-size:clamp(30px,6vw,50px)}.guest{width:96%;padding:14px 8px}.guest-name{font-size:clamp(26px,5vw,43px)}footer{height:96px;padding:8px 18px;gap:12px}.weather{gap:9px}.weather-icon{font-size:34px}.temp,.clock{font-size:31px}.foot-divider{height:48px}}
+@media(max-height:650px){main{height:calc(100dvh - 88px);padding-top:7px;padding-bottom:8px}.brand img{height:62px}.brand.schaaf img{height:58px}.brand{padding:5px}.hero h1{font-size:min(5.7vw,65px)}.hero h2{font-size:min(4.7vw,54px)}.hero{margin:auto 0}.accent{margin-top:10px}.guest{padding:9px}.guest-name{font-size:min(3.7vw,42px)}footer{height:88px}}
 </style>
 </head>
 <body>
-<div class="scene" aria-hidden="true"></div>
+<div class="scene" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
 <main>
 <header class="brand-row">
 <div class="brand"><img src="mettas.png" alt="METTAŞ Cıvata"></div>
