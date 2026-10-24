@@ -1,76 +1,8 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>METTAŞ TV</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: black;
-}
-
-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain;
-}
-</style>
-</head>
-
-<body>
-
-<video
-    id="mettasVideo"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto">
-    
-    <source src="METTAS_HOSGELDINIZ_KARSILAMA%20%281%29.mp4" type="video/mp4">
-
-</video>
-
-<script>
-const video = document.getElementById("mettasVideo");
-
-video.play().catch(function(error) {
-    console.log("Otomatik oynatma engellendi:", error);
-});
-</script>
-
-</body>
-</html>
-<div class="brand"><img src="mettas-tv.png" alt="METTAŞ Cıvata"></div>
-
-<div class="brand schaaf"><img src="schaaf-tv.png" alt="SCHAAF"><div class="tag">LEADING JOINING TECHNOLOGY BY SCHAAF</div></div>
-</header>
-<section class="hero"><h1>HOŞ GELDİNİZ</h1><h2>WILLKOMMEN</h2><div class="accent"></div></section>
-<section class="guest"><div class="guest-name" id="guestName">Ali Kemal Karaağaç</div><div class="company" id="guestCompany">SCHAAF GmbH</div><div class="welcome-note">Ziyaretinizden memnuniyet duyuyoruz.</div><div class="welcome-note-de">Wir freuen uns über Ihren Besuch.</div></section>
-</main>
-<footer><div class="weather"><span class="weather-icon" id="weatherIcon">🌤️</span><div><div class="place">ÇAYIROVA · KOCAELİ</div><div class="temp" id="temperature">--°C</div><div class="condition" id="weatherText">Hava durumu yükleniyor...</div></div></div><div class="foot-divider"></div><div class="timebox"><div class="date" id="date"></div><div class="clock" id="clock"></div></div></footer>
-<script>
-const params=new URLSearchParams(location.search);
-function setGuest(name,company){if(name)document.getElementById('guestName').textContent=name;if(company)document.getElementById('guestCompany').textContent=company}
-setGuest(params.get('isim')||params.get('name'),params.get('firma')||params.get('company'));
-fetch('config.json?ts='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('config');return r.json()}).then(c=>{
-  const name=c.visitorName||c.guestName||c.guest_name||c.name||c.isim||c.visitor?.name||c.guest?.name;
-  const company=c.visitorCompany||c.guestCompany||c.guest_company||c.company||c.firma||c.visitor?.company||c.guest?.company;
-  setGuest(params.get('isim')||params.get('name')||name,params.get('firma')||params.get('company')||company);
-}).catch(()=>{});
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>METTAŞ TV | Video ve Canlı Hava Durumu</title><style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07121e;color:#fff;font-family:Arial,Helvetica,sans-serif}.screen{height:100dvh;display:flex;flex-direction:column}.video-area{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#02060a}video{width:100%;height:100%;object-fit:contain;display:block}.bar{height:116px;flex-shrink:0;background:linear-gradient(100deg,#0b2034,#102e49 60%,#071929);border-top:2px solid #e33238;display:flex;align-items:center;justify-content:space-between;padding:12px 4%;gap:18px}.weather{display:flex;align-items:center;gap:17px}.icon{font-size:46px}.location{font-size:16px;letter-spacing:1.5px;color:#c8d8e7;font-weight:700}.weather-details{display:flex;align-items:baseline;gap:16px}.temp{font-size:44px;font-weight:800}.condition{font-size:17px;color:#c8d8e7}.time{text-align:right}.clock{font-size:43px;font-weight:800}.date{font-size:17px;color:#c8d8e7}.fallback{display:none;position:absolute;top:25px;left:25px;background:#16283de8;padding:12px;border-radius:6px;font-size:15px}body.video-error .fallback{display:block}@media(max-width:700px){.bar{height:90px;padding:8px 3%;gap:8px}.icon{font-size:28px}.weather{gap:8px}.location,.date{font-size:11px}.temp,.clock{font-size:26px}.condition{font-size:11px}.weather-details{gap:5px}}
+</style></head><body><div class="screen"><div class="video-area"><video id="film" autoplay muted loop playsinline preload="auto"><source src="mettas-video.mp4" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video><div class="fallback" id="notice">Video yüklenemedi. İnternet bağlantısını ve mettas-video.mp4 dosyasını kontrol edin.</div></div><div class="bar"><div class="weather"><div class="icon" id="weatherIcon">🌤️</div><div><div class="location">ÇAYIROVA · KOCAELİ</div><div class="weather-details"><span class="temp" id="temperature">--°C</span><span class="condition" id="weatherText">Hava durumu yükleniyor...</span></div></div></div><div class="time"><div class="clock" id="clock">--:--</div><div class="date" id="date">—</div></div></div></div><script>
+const film=document.getElementById('film');film.muted=true;function playVideo(){film.play().catch(()=>{});}film.addEventListener('canplay',playVideo);film.addEventListener('error',()=>document.body.classList.add('video-error'));document.addEventListener('visibilitychange',()=>{if(!document.hidden)playVideo()});playVideo();
 function tick(){const d=new Date();document.getElementById('date').textContent=new Intl.DateTimeFormat('tr-TR',{day:'numeric',month:'long',year:'numeric',weekday:'long',timeZone:'Europe/Istanbul'}).format(d);document.getElementById('clock').textContent=new Intl.DateTimeFormat('tr-TR',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Europe/Istanbul'}).format(d)}tick();setInterval(tick,1000);
 function describe(code){if(code===0)return ['☀️','Açık'];if(code<=3)return ['⛅','Parçalı bulutlu'];if(code<=48)return ['🌫️','Sisli'];if(code<=67)return ['🌧️','Yağmurlu'];if(code<=77)return ['❄️','Karlı'];if(code<=82)return ['🌦️','Sağanak yağışlı'];if(code<=86)return ['🌨️','Kar yağışlı'];if(code>=95)return ['⛈️','Gök gürültülü'];return ['🌤️','Değişken']}
 async function weather(){try{const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=40.83444&longitude=29.4&current=temperature_2m,weather_code&timezone=Europe%2FIstanbul',{cache:'no-store'});if(!r.ok)throw Error('weather');const j=await r.json();const [icon,label]=describe(j.current.weather_code);document.getElementById('weatherIcon').textContent=icon;document.getElementById('temperature').textContent=Math.round(j.current.temperature_2m)+'°C';document.getElementById('weatherText').textContent=label}catch(e){document.getElementById('weatherText').textContent='Hava durumu güncellenemedi'}}weather();setInterval(weather,15*60*1000);
-</script>
-</body></html>
+</script></body></html>
